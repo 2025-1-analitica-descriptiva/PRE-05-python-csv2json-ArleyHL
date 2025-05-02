@@ -9,6 +9,7 @@ def convert_csv_2_json(input_file):
     """Converts a CSV file to a JSON file"""
 
     output_file = input_file.replace(".csv", ".json")
+
     data = []
 
     with open(input_file, "r", encoding="utf-8") as f:
@@ -23,26 +24,28 @@ def convert_csv_2_json(input_file):
 
 
 def app():
+    
+    ui.label("CSV to JSON Converter").classes("text-4xl font-bold")
 
-    ui.label("CSV to JSON converter").classes("text-4xl font-bold")
     ui.label("")
-    filename=ui.input(
-        label="csv file to convert:",
+
+    filename = ui.input(
+        label="CSV file to convert:",
         placeholder="filename",
     )
-
-    ui.label("")
     
     ui.label("")
 
-    ui.button("Convert",
-              on_click=lambda: convert_csv_2_json(filename.value),)
+    ui.label("")
+
+    ui.button(
+        "Convert", 
+        on_click=lambda: convert_csv_2_json(filename.value),
+    )
 
     ui.run()
-    #ui.label("este es un demo")
-    #ui.label("esta es la primera línea")
 
 
 
-
+    
 app()
